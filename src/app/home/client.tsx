@@ -1,5 +1,12 @@
 "use client";
 
+import { AxiosFetcher } from "#/lib/fetcher";
+import useSWR from "swr";
+
 export default function HomeClient() {
-  return <h1>Home Clint</h1>;
+  const { data } = useSWR(
+    "https://jsonplaceholder.typicode.com/todos",
+    AxiosFetcher
+  );
+  return <>{JSON.stringify(data)}</>;
 }

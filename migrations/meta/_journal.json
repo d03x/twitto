@@ -15,6 +15,13 @@
       "when": 1739358734647,
       "tag": "0001_closed_steve_rogers",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1739360474043,
+      "tag": "1739360474_friendly_quasar",
+      "breakpoints": true
     }
   ]
 }
