@@ -1,0 +1,72 @@
+@use "../../../../sass/abstract/media-query" as *;
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mq("xx-large") {
+    align-items: start;
+  }
+}
+
+.nav_item {
+  width: 100%;
+  display: grid;
+  cursor: pointer;
+  place-items: center;
+  padding: 0.315rem;
+  font-size: var(--fs-h4);
+  @include mq("small") {
+    padding: 0.25rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @include mq("xx-large") {
+    place-items: start;
+  }
+}
+
+.nav_item_wrapper {
+  transition: all 100ms ease-in-out;
+  @include mq("small") {
+    padding: 0.4em;
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+  }
+  @include mq("xx-large") {
+  }
+  display: flex;
+  border-radius: 100vmax;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: var(--fs-h4);
+    height: var(--fs-h4);
+  }
+  &:hover {
+    background-color: var(--c-nav-hover);
+  }
+  &:active {
+    background-color: var(--c-nav-active);
+  }
+  span:nth-child(2) {
+    display: none;
+    margin-left: 0.5em;
+    @include mq("xx-large") {
+      display: inline;
+    }
+  }
+}
+
+.nav_item {
+  &:hover {
+    .nav_item_wrapper {
+      background-color: var(--c-nav-hover);
+    }
+  }
+  &:active {
+    .nav_item_wrapper {
+      background-color: var(--c-nav-active);
+    }
+  }
+}

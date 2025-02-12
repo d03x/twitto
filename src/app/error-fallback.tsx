@@ -1,4 +1,9 @@
 "use client";
-export default function ErrorFallback(){
-    return <h1>ADA MASALAH KEKNYA</h1>
+import error from "./styles/error-boundary.module.scss";
+export default function ErrorFallback() {
+  return (
+    <div className={error.container}>
+      Could not load the page, please try again later
+    </div>
+  );
 }

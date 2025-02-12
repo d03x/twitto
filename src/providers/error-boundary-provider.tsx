@@ -11,7 +11,9 @@ export const ErrorBoundaryProvider: React.FC<ErrorBoundaryProvider> = (
   props
 ) => {
   const onError = (error: Error, info: ErrorInfo) => {
-    console.log(info.componentStack);
+    console.log(error);
+    
+    console.log(info.digest);
   };
   return (
     <ErrorBoundary

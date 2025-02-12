@@ -1,0 +1,29 @@
+@use "../../../../sass/abstract/media-query" as *;
+.tweet_button {
+  width: 45px;
+
+  height: 45px;
+  margin: 0.6em auto;
+  svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+  }
+  @include mq("xx-large") {
+    width: 100%;
+    margin-right: 3em;
+  }
+  span:last-child {
+    display: none;
+    @include mq("xx-large") {
+      display: block;
+      font-size: var(--fs-h6);
+      font-weight: bold;
+    }
+  }
+  span:first-child {
+    @include mq("xx-large") {
+      display: none;
+    }
+  }
+}
