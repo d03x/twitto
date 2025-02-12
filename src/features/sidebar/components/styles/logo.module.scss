@@ -1,0 +1,24 @@
+.container {
+  border-radius: 100vmax;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  a {
+    padding: 0.75em;
+    display: grid;
+  }
+  &:hover {
+    background-color: var(--c-logo-hover);
+  }
+  &:active {
+    background-color: var(--c-logo-active);
+  }
+  &:has(:focus-visible) {
+    outline: 2px solid var(--c-secondary);
+    background-color: var(--c-logo-hover);
+  }
+  svg {
+    height: 30px;
+    width: 30px;
+    fill: var(--c-logo);
+  }
+}

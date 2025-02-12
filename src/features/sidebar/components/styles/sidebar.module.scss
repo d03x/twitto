@@ -1,0 +1,32 @@
+@use "../../../../sass/abstract/media-query" as *;
+.container {
+  height: 100vh;
+  height: 100dvh;
+  background: var(--c-background);
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  display: none;
+  .logo,
+  .user {
+    display: flex;
+    align-items: center;
+  }
+  @include mq("small") {
+    display: grid;
+    grid-template-rows: min-content min-content min-content 1fr;
+    padding: 4px;
+  }
+
+  @include mq("medium") {
+    padding: 4px 0.5em;
+  }
+
+  @include mq("xx-large") {
+    .logo,
+    .tweetButton,
+    .user {
+      justify-content: flex-start;
+    }
+  }
+}

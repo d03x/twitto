@@ -1,0 +1,18 @@
+@use "../../../../sass/abstract/media-query" as *;
+.container {
+  display: none;
+  position: sticky;
+  top: 0;
+  padding: 0 1.8rem 0 1.8rem;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  &:focus-visible {
+    outline: 2px solid var(--clr-secondary);
+  }
+  padding-bottom: 6rem;
+  @include mq("large") {
+    display: block;
+  }
+}
