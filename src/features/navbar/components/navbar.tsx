@@ -5,6 +5,7 @@ import { MessageIcon } from "#/assets/icons/message";
 import { NotificationIcon } from "#/assets/icons/notification";
 import { ProfileIcon } from "#/assets/icons/profile";
 import { SettingsIcon } from "#/assets/icons/settings";
+import { ShopIcon } from "#/assets/icons/shop";
 import style from "#/features/navbar/components/styles/navbar.module.scss";
 import { NavItem } from "./nav-item";
 export const Navbar = () => {
@@ -52,6 +53,12 @@ export const Navbar = () => {
           isActive={false}
           icon={<SettingsIcon />}
           text="Settings"
+        />
+        <NavItem
+          href={"/marketplace"}
+          isActive={false}
+          icon={<ShopIcon />}
+          text="Marketplace"
         />
       </nav>
     </>
