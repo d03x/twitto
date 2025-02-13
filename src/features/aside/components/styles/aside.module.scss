@@ -15,8 +15,16 @@
   @include mq("large") {
     display: block;
   }
-  .auth_form {
+  .auth_form{
     margin-top: 0.9rem;
+  }
+  .search{
+    background-color: var(--c-background);
+    position: sticky;
+    top: 0;
+    padding: 5px 0px;
+    z-index: 2;
+    margin-bottom: 11px;
   }
   .footer {
     margin-top: 15px;

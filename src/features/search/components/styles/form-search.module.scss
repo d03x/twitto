@@ -1,0 +1,71 @@
+@use "../../../../sass/abstract/media-query" as *;
+
+.container {
+  position: relative;
+  label {
+    display: grid;
+    gap: 1em;
+    background-color: var(--c-search-background);
+    color: var(--c-secondary);
+    font-size: var(--fs-milli);
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    border-radius: 100vmax;
+    padding: 0.2em 0.7em;
+    cursor: text;
+    padding: 0.7em;
+
+    .close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: var(--c-primary);
+      border-radius: 100vmax;
+      fill: var(--c-background);
+      padding: 0.3em;
+
+      &:hover {
+        background-color: var(--c-primary-hover);
+      }
+
+      &:active {
+        background-color: var(--c-primary-active);
+      }
+
+      &:focus-visible {
+        outline: 1px solid var(--c-light);
+      }
+
+      svg {
+        fill: var(--c-light);
+        width: var(--fs-pico);
+        height: var(--fs-pico);
+      }
+    }
+
+    &:focus-within {
+      outline: 1px solid var(--c-primary);
+      background-color: var(--c-background);
+      fill: var(--c-primary);
+    }
+
+    input {
+      width: 100%;
+
+      &::placeholder {
+        color: var(--c-tertiary);
+      }
+    }
+
+    .icon {
+      display: grid;
+
+      svg {
+        fill: var(--c-tertiary);
+        width: var(--fs-h2);
+        height: var(--fs-h2);
+      }
+    }
+  }
+}

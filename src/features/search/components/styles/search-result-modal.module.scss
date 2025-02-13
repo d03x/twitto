@@ -1,0 +1,15 @@
+.container{
+  background-color: var(--c-background);
+  position: absolute;
+  overflow: auto;
+  left: 0;
+  right: 0;
+  top: 110%;
+  cursor:text;
+  border-radius: 0.5rem;
+  box-shadow: 0 0rem 10px -5px var(--c-tertiary);
+  height: fit-content;
+  height: 100px;
+  max-height: min(800px,calc(100vh - 100px));
+
+}
