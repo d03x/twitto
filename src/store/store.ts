@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import search from "#/features/search/stores/search";
+import {searchReducer} from "#/features/search";
 export const makeStore = () => {
     return configureStore({
         reducer: {
-            search
+            search : searchReducer
         }
     });
 }

@@ -11,6 +11,12 @@
   height: fit-content;
   min-height: 100px;
   max-height: min(800px, calc(100vh - 100px));
+  .placeholder{
+    padding: 1em 0.8em;
+    font-size: var(--fs-milli);
+    color: var(--c-tertiary);
+    text-align: center;
+  }
   .results {
     .link{
       display: block;

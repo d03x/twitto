@@ -1,7 +1,6 @@
 "use client";
 import styles from "./styles/form-search.module.scss";
 import SearchIcon from "#/features/search/assets/search-icon";
-import { ClearIcon } from "#/features/search/assets/clear-icon";
 import { AnimatePresence } from "framer-motion";
 import { SearchResultModal } from "#/features/search/components/search-result-modal";
 import { ChangeEvent, useCallback, useState } from "react";
@@ -13,6 +12,7 @@ import {
   SET_QUERY,
 } from "../stores/search";
 import { useRouter } from "next/navigation";
+import { ClearIcon } from "../assets";
 export const Search = () => {
   const router = useRouter();
   const modalResultOpen = useAppSelector(getModalResultOpen);
@@ -39,6 +39,9 @@ export const Search = () => {
   const closeResultModal = useCallback(() => {
     dispatch(SET_MODAL_RESULT_OPEN(false));
   }, [modalResultOpen]);
+  const openResultModal = useCallback(() => {
+    dispatch(SET_MODAL_RESULT_OPEN(true));
+  }, [modalResultOpen]);
   return (
     <form
       action=""
@@ -52,7 +55,7 @@ export const Search = () => {
         handleSearchSubmit(`/search?q=${searchQuery}`);
       }}
     >
-      <label htmlFor="searchForm" onClick={closeResultModal}>
+      <label htmlFor="searchForm" onClick={openResultModal}>
         <div className={styles.icon}>
           <SearchIcon />
         </div>

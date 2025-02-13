@@ -24,7 +24,7 @@ export const search = createSlice({
         }
     }
 })
+export const searchReducer = search.reducer;
 export const { SET_QUERY, SET_MODAL_RESULT_OPEN } = search.actions;
 export const getSearchQuery = (state: RootState) => state.search.query;
 export const getModalResultOpen = (state: RootState) => state.search.modalResultOpen;
-export default search.reducer;

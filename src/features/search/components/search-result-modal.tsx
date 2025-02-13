@@ -8,7 +8,9 @@ import {
   SET_MODAL_RESULT_OPEN,
 } from "../stores/search";
 import { ReactNode, useCallback, useEffect, useState } from "react";
-import SearchIcon from "../assets/search-icon";
+import { ProgressBar } from "#/components/elements/progress-bar/progress-bar";
+import { SearchIcon } from "../assets";
+import { useSearchQuery } from "../hooks/useSearchQuery";
 export const SearchResultModal = ({
   handleSearchSubmit,
 }: {
@@ -116,7 +118,10 @@ export const SearchResultModal = ({
     setCurrentIndex(null);
   }, [query]);
 
-  const beritaViral = [
+  const { isLoading, data, error } = useSearchQuery(query);
+  console.log(data?.data);
+
+  const beritaViral: any[] = [
     "Jokowi makan di warung",
     "Presiden Indonesia",
     "Momen ",
@@ -159,35 +164,42 @@ export const SearchResultModal = ({
         y: -10,
       }}
     >
-      <div className={styles.results}>
-        <div className={styles.hastags}>
-          {beritaViral.map((text, index: number) => {
-            return (
-              <SearchResult
-                href={`/search?q=${text}`}
-                key={index}
-                selected={currentIndex === index}
-              >
-                <span className={styles.hastag}>
-                  <span className={styles.icon}>
-                    <SearchIcon />
-                  </span>
-                  <div className={styles.text}>
-                    <span>{text}</span>
-                    <span>Trending</span>
-                  </div>
-                </span>
-              </SearchResult>
-            );
-          })}
+      {isLoading && <ProgressBar />}
+      {!query ? (
+        <div className={styles.placeholder}>
+          Try searching for people, topics, or keywords
         </div>
-        <SearchResult
-          href={`/${query}`}
-          selected={currentIndex === options.length - 1}
-        >
-          <span className={styles.link}>Go To @{query}</span>
-        </SearchResult>
-      </div>
+      ) : (
+        <div className={styles.results}>
+          <div className={styles.hastags}>
+            {data?.data.map((text: any, index: number) => {
+              return (
+                <SearchResult
+                  href={`/search?q=${text}`}
+                  key={index}
+                  selected={currentIndex === index}
+                >
+                  <span className={styles.hastag}>
+                    <span className={styles.icon}>
+                      <SearchIcon />
+                    </span>
+                    <div className={styles.text}>
+                      <span>{text}</span>
+                      <span>Trending</span>
+                    </div>
+                  </span>
+                </SearchResult>
+              );
+            })}
+          </div>
+          <SearchResult
+            href={`/${query}`}
+            selected={currentIndex === options.length - 1}
+          >
+            <span className={styles.link}>Go To @{query}</span>
+          </SearchResult>
+        </div>
+      )}
     </motion.div>
   );
 };

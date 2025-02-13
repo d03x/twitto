@@ -1,0 +1,24 @@
+.container{
+    position: relative;
+    height: 3px;
+    overflow: hidden;
+    background-color: var(--c-background);
+    span{
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 80px;
+        background-color: var(--c-primary);
+        border-radius: 100vmax;
+        animation: progress 1s linear infinite ;
+    }
+}
+
+@keyframes progress{
+    0%{
+        left: 0;
+    }
+    100%{
+        left: 100%;
+    }
+}
