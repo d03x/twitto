@@ -12,6 +12,14 @@
   min-height: 100px;
   max-height: min(800px, calc(100vh - 100px));
   .results {
+    .link{
+      display: block;
+      padding: 1rem;
+      font-size: var(--fs-nano);
+      font-weight: var(--fw-400);
+      color: var(--c-secondary);
+      cursor: pointer;
+    }
     .hastag {
       align-items: center;
       gap: 0.8em;
@@ -50,10 +58,11 @@
 .selected{
   background-color: var(--c-tweet-hover);
 }
+
 .option {
   cursor: pointer;
   display: grid;
-  transition: 0.3s ease-in-out;
+  transition: 100ms ease-in;
   &:hover{
     background-color: var(--c-tweet-hover);
   }

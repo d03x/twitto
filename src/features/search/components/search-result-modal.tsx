@@ -9,7 +9,11 @@ import {
 } from "../stores/search";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import SearchIcon from "../assets/search-icon";
-export const SearchResultModal = () => {
+export const SearchResultModal = ({
+  handleSearchSubmit,
+}: {
+  handleSearchSubmit: (path: string) => void;
+}) => {
   const searchResultOpen = useAppSelector(getModalResultOpen);
   const dispatch = useAppDispatch();
   const query = useAppSelector(getSearchQuery);
@@ -31,7 +35,7 @@ export const SearchResultModal = () => {
   //################### FOR HANDLE SELECT OPTION ####################/
   const handleSelect = useCallback(
     (e: KeyboardEvent) => {
-      const key = e.key as "ArrowDown" | "ArrowUp" | "Tab" | "Escape";
+      const key = e.key as "ArrowDown" | "ArrowUp" | "Enter" | "Tab" | "Escape";
       if (key === "Tab" || key === "Escape") {
         dispatch(SET_MODAL_RESULT_OPEN(false));
       }
@@ -54,7 +58,7 @@ export const SearchResultModal = () => {
         }
         e.preventDefault();
         setCurrentIndex((prev) => {
-          if (prev == null || prev >= options.length -1) return 0;
+          if (prev == null || prev >= options.length - 1) return 0;
           else return prev == options.length - 1 ? 0 : prev + 1;
         });
       }
@@ -83,6 +87,18 @@ export const SearchResultModal = () => {
           }
         });
       }
+      if (key === "Enter") {
+        if (!query) return;
+        else if (currentIndex == null) {
+          handleSearchSubmit(`/search?q=${query}`);
+        } else {
+          e.preventDefault();
+          const href = options[currentIndex]?.getAttribute("data-href");
+          if (href) {
+            handleSearchSubmit(href);
+          }
+        }
+      }
     },
     [currentIndex]
   );
@@ -101,26 +117,26 @@ export const SearchResultModal = () => {
   }, [query]);
 
   const beritaViral = [
-    "Jokowi makan di warung, viral terbaru",
-    "Presiden Indonesia makan bakso viral",
-    "Momen viral presiden makan di pinggir jalan",
-    "Makan gratis untuk rakyat, presiden beri kejutan",
-    "Video terbaru viral, Jokowi makan bersama warga",
-    "Presiden terjun langsung makan di pasar",
-    "Makan malam spesial, menu terbaru presiden",
-    "Viral! Presiden kunjungi warung makan sederhana",
-    "Makanan khas daerah favorit presiden",
-    "Terbaru! Presiden dan menteri makan di kantin",
-    "Viral, warga makan bersama presiden di istana",
-    "Makan siang di restoran, presiden bikin heboh",
-    "Jokowi dan pejabat makan di warung sederhana",
-    "Menu makan terbaru di istana presiden",
-    "Warga heboh! Presiden makan di angkringan",
-    "Makan bareng presiden, suasana jadi viral",
-    "Terbaru! Presiden coba makanan kaki lima",
-    "Makanan viral terbaru yang dicoba Jokowi",
-    "Presiden makan durian, videonya viral",
-    "Warung makan sederhana dikunjungi presiden",
+    "Jokowi makan di warung",
+    "Presiden Indonesia",
+    "Momen ",
+    "Makan gratis",
+    "Video terbaru viral,",
+    "Presiden",
+    "Makan",
+    "Viral!",
+    "Makanan",
+    "Terbaru! ",
+    "Viral,",
+    "Makan siang h",
+    "Jokowi dan",
+    "Menu makan ",
+    "Warga heboh! ",
+    "Makan bareng ",
+    "Terbaru! Presiden",
+    "Makanan viral ",
+    "Presiden makan",
+    "Warung makan",
   ];
 
   return (
@@ -147,7 +163,11 @@ export const SearchResultModal = () => {
         <div className={styles.hastags}>
           {beritaViral.map((text, index: number) => {
             return (
-              <SearchResult key={index} selected={currentIndex === index}>
+              <SearchResult
+                href={`/search?q=${text}`}
+                key={index}
+                selected={currentIndex === index}
+              >
                 <span className={styles.hastag}>
                   <span className={styles.icon}>
                     <SearchIcon />
@@ -161,8 +181,11 @@ export const SearchResultModal = () => {
             );
           })}
         </div>
-        <SearchResult selected={currentIndex === options.length - 1}>
-          Go to Query
+        <SearchResult
+          href={`/${query}`}
+          selected={currentIndex === options.length - 1}
+        >
+          <span className={styles.link}>Go To @{query}</span>
         </SearchResult>
       </div>
     </motion.div>
@@ -171,9 +194,11 @@ export const SearchResultModal = () => {
 const SearchResult = ({
   children,
   selected,
+  href,
 }: {
   selected: boolean;
   children: ReactNode;
+  href: string;
 }) => {
   return (
     <div
@@ -181,7 +206,7 @@ const SearchResult = ({
       data-role="option"
       tabIndex={0}
       aria-selected={selected}
-      data-href="none"
+      data-href={href}
       className={!selected ? styles.option : styles.selected}
     >
       <button>{children}</button>
