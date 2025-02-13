@@ -30,6 +30,7 @@ export const SearchResultModal = () => {
             role={"multiselect"}
             aria-multiselectable="false"
             className={styles.container}
+            transition={{ duration: 0.2 }}
             initial={{
                 opacity: 0,
                 y: -10

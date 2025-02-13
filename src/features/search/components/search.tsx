@@ -79,8 +79,8 @@ export const Search = () => {
                 <ClearIcon />
             </button>
         </label>
-        {modalResultOpen && <AnimatePresence>
-            <SearchResultModal />
-        </AnimatePresence>}
+        <AnimatePresence>
+            {modalResultOpen && <SearchResultModal />}
+        </AnimatePresence>
     </form>
 };
