@@ -7,9 +7,7 @@ import { SearchResultModal } from "#/features/search/components/search-result-mo
 import { ChangeEvent, useCallback, useState } from "react";
 import { useAppDispatch, useAppSelector } from "#/hooks/useStore";
 import { getModalResultOpen, getSearchQuery, SET_MODAL_RESULT_OPEN, SET_QUERY } from "../stores/search";
-import { useDebounce } from "#/hooks/useDebounce";
 import { useRouter } from "next/navigation";
-
 export const Search = () => {
     const router = useRouter();
     const modalResultOpen = useAppSelector(getModalResultOpen);

@@ -21,6 +21,7 @@
     "next": "15.1.6",
     "nextjs-toploader": "^3.7.15",
     "pg": "^8.13.2",
+    "postcss-modules": "^6.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",

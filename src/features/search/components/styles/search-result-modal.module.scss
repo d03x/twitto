@@ -1,15 +1,60 @@
-.container{
+.container {
   background-color: var(--c-background);
   position: absolute;
   overflow: auto;
   left: 0;
   right: 0;
   top: 110%;
-  cursor:text;
+  cursor: text;
   border-radius: 0.5rem;
   box-shadow: 0 0rem 10px -5px var(--c-tertiary);
   height: fit-content;
-  height: 100px;
-  max-height: min(800px,calc(100vh - 100px));
-
+  min-height: 100px;
+  max-height: min(800px, calc(100vh - 100px));
+  .results {
+    .hastag {
+      align-items: center;
+      gap: 0.8em;
+      width: 100%;
+      cursor: pointer;
+      grid-template-columns: auto 1fr;
+      display: grid;
+      padding: 0.6em 1em;
+      .icon {
+        padding: 0.3em;
+        display: grid;
+        place-items: center;
+        svg {
+          height: var(--fs-h2);
+          height: var(--fs-h2);
+          color: var(--c-secondary);
+        }
+      }
+      .text {
+        display: grid;
+        span {
+          color: var(--c-tertiary);
+          font-size: var(--fs-milli);
+          font-weight: var(--fw-700);
+        }
+        span {
+          &:last-child {
+            font-size: var(--fs-nano);
+            font-weight: var(--fw-400);
+          }
+        }
+      }
+    }
+  }
+}
+.selected{
+  background-color: var(--c-tweet-hover);
+}
+.option {
+  cursor: pointer;
+  display: grid;
+  transition: 0.3s ease-in-out;
+  &:hover{
+    background-color: var(--c-tweet-hover);
+  }
 }
