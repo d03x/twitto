@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    border-radius: 100vmax;
+  background-color: var(--c-light);
+  font-size: var(--fs-milli);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-dark);
+  cursor: pointer;
+  border: 1px solid var(--c-auth-border);
+  font-weight: var(--fw-700);
+  padding: 0.7em;
+  &:hover{
+    background-color: var(--c-auth-button-hover);
+  }
+  &:active{
+    background-color: var(--c-auth-button-active);
+  }
+  &:focus-visible{
+    outline: 1px solid var(--c-light);
+    background-color: var(--c-auth-button-hover);
+  }
+  svg {
+    width: var(--fs-h2);
+    height: var(--fs-h2);
+    fill: var(--c-dark);
+    margin-right: 0.5em;
+  }
+}

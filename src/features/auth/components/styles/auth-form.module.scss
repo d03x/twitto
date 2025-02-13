@@ -1,0 +1,34 @@
+.container {
+  background: var(--c-background);
+  border: 1px solid var(--c-border);
+  padding: 0.5em;
+  border-radius: 1rem;
+  padding: 1em 0.8em;
+  .title {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-700);
+    margin-bottom: 0.5em;
+  }
+  .description{
+    font-size: var(--fs-nano);
+    color: var(--c-tertiary);
+  }
+  .buttons{
+    gap: 0.8em;
+    padding: 0.8em 0;
+    display: grid;
+  }
+  .terms{
+    font-size: var(--fs-nano);
+    color: var(--c-tertiary);
+    line-height: 1.5;
+    a{
+        color:var(--c-blue);
+        cursor: pointer;
+        &:hover,
+        &:focus-visible{
+            text-decoration: underline;
+        }
+    }
+  }
+}

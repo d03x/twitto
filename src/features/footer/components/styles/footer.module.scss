@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  padding: 0 1em;
+  column-gap: 0.75em;
+  flex-wrap: wrap;
+  color: var(--c-tertiary);
+  span{
+    font-size: var(--fs-nano);
+    margin: 2px 0;
+  }
+}

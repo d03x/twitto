@@ -1,0 +1,13 @@
+.container{
+    text-decoration: none;
+    font-size: var(--fs-nano);
+    margin: 2px 0;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+    &:focus-visible{
+        text-decoration: underline;
+    }
+}
