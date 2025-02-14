@@ -2,3 +2,8 @@
    border:1px solid;
    background:var(--background);
 }
+.btn{
+   &:focus-visible{
+      outline: 1px solid red;
+   }
+}

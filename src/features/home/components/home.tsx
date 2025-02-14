@@ -5,6 +5,9 @@ import styles from "./styles/home.module.scss";
 import { ActionButton } from "./ActionButton";
 import { Menu } from "#/components/elements/menu/menu";
 import { AnimatePresence } from "motion/react";
+import { MenuItem } from "#/components/elements/menu/menu-item";
+import { HashIcon, HomeIcon } from "#/assets/icons";
+import { SearchIcon } from "#/features/search";
 export const Home = ({ children }: any) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const buttonRef2 = useRef<HTMLButtonElement>(null);
@@ -13,17 +16,12 @@ export const Home = ({ children }: any) => {
   useEffect(() => {
     // console.log(`REF`,buttonRef);
   }, []);
-  const onClose = ()=>{
+  const onClose = () => {
     setMenu(false);
-  }
+  };
   return (
     <div className={styles.container}>
-      <button onKeyDown={(e)=>e.stopPropagation()} onClick={(e) => {e.stopPropagation();setMenu(!menu)}} ref={buttonRef}>
-      Loclick
-      </button>
-      <AnimatePresence>
-        {menu && <Menu onClose={onClose} ref={buttonRef}>MENU HAHAH WELLCOME</Menu>}
-      </AnimatePresence>
+     
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint et harum
       ratione perspiciatis. Facere, accusantium aut praesentium deleniti
       quisquam soluta mollitia facilis quod culpa eveniet ullam ratione eligendi
@@ -37,6 +35,33 @@ export const Home = ({ children }: any) => {
       tenetur dolor eos ut repellendus. Magni recusandae inventore unde et
       aliquid exercitationem expedita impedit hic quae atque, molestiae totam
       quam aliquam. Totam, inventore cupiditate fuga itaque deleniti
+      <button
+      className={styles.btn}
+        onKeyDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+          setMenu(!menu);
+        }}
+        ref={buttonRef}
+      >
+        Loclick
+      </button>
+      <AnimatePresence>
+        {menu && <Menu onClose={onClose} ref={buttonRef}>
+          <MenuItem>
+          <HomeIcon/>
+          Laporkan Penguna</MenuItem>
+          <MenuItem>
+          <SearchIcon/>
+          Download Data
+          </MenuItem>
+          <MenuItem>
+          <HashIcon/>
+          Publikasikan Data
+          </MenuItem>
+          <MenuItem>Laporkan Data</MenuItem>
+          </Menu>}
+      </AnimatePresence>
       perspiciatis et harum incidunt qui nihil impedit, ea ratione illo adipisci
       laboriosam maiores dolore eveniet dicta laudantium cum facilis. Aliquid
       ipsum iure voluptate magnam. Est odit labore quia, vero veritatis omnis
@@ -48,12 +73,17 @@ export const Home = ({ children }: any) => {
       expedita dolores dolor maiores dignissimos. Totam voluptate placeat
       officiis adipisci possimus quam, quaerat ad ducimus, omnis asperiores sed
       nihil nam laborum saepe iste pariatur aperiam tempore? Sed quaerat
-      <button onKeyDown={(e)=>e.stopPropagation()} onClick={(e) => {e.stopPropagation();setMenu2(!menu2)}} ref={buttonRef2}>
+      <button
+        onKeyDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+          setMenu2(!menu2);
+        }}
+        ref={buttonRef2}
+      >
         Loclick
       </button>
-      <AnimatePresence>
-        {menu2 && <Menu ref={buttonRef2}>MENU HAHAH WELLCOME</Menu>}
-      </AnimatePresence>
+    
       incidunt ipsam reprehenderit et voluptatem, reiciendis voluptates. Illo
       perferendis nobis laborum quis in debitis corporis rem magnam repellat.
       Non ab aliquam porro facere minima labore, aspernatur repudiandae

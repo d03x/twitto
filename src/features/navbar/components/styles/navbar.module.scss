@@ -10,11 +10,16 @@
 }
 
 .nav_item {
+  &:focus-visible {
+    outline: 2px solid var(--c-primary);
+    background-color: var(--c-nav-hover);
+  }
   width: 100%;
   display: grid;
   cursor: pointer;
   place-items: center;
   padding: 0.315rem;
+
   font-size: var(--fs-h4);
   @include mq("small") {
     padding: 0.25rem;
@@ -43,6 +48,7 @@
     width: var(--fs-h4);
     height: var(--fs-h4);
   }
+ 
   &:hover {
     background-color: var(--c-nav-hover);
   }
