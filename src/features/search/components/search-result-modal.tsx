@@ -48,7 +48,6 @@ export const SearchResultModal = ({
               ? 0
               : currentIndex + 1
           ];
-
         if (currentIndex != null) {
           if (option) {
             option.scrollIntoView({
@@ -120,29 +119,6 @@ export const SearchResultModal = ({
 
   const { isLoading, data, error } = useSearchQuery(query);
   console.log(data?.data);
-
-  const beritaViral: any[] = [
-    "Jokowi makan di warung",
-    "Presiden Indonesia",
-    "Momen ",
-    "Makan gratis",
-    "Video terbaru viral,",
-    "Presiden",
-    "Makan",
-    "Viral!",
-    "Makanan",
-    "Terbaru! ",
-    "Viral,",
-    "Makan siang h",
-    "Jokowi dan",
-    "Menu makan ",
-    "Warga heboh! ",
-    "Makan bareng ",
-    "Terbaru! Presiden",
-    "Makanan viral ",
-    "Presiden makan",
-    "Warung makan",
-  ];
 
   return (
     <motion.div
